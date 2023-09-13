@@ -74,7 +74,7 @@
             (when (= depth 0) (lua "return line, col"))))
       (local (prev-line prev-col) (values line col))
       (set-forcibly! (line col) (doc:position_offset line col direction))
-      (when (and (= line prev-line) (= col prev-col)) (lua :break)))))	
+      (when (and (= line prev-line) (= col prev-col)) (lua :break)))))
 
 (fn brute-force-scope-match []
   (print "running")
@@ -82,15 +82,17 @@
     (print "step2")
     (let [doc core.active_view.doc
           (start-line start-col) (doc:get_selection)]
-      (var current-line start-line)
-      (var current-col start-col)
-      (print current-col)
+
+      (print start-line start-col))))
+      ;; (var current-line start-line)
+      ;; (var current-col start-col)
+      ;; (print current-col)
       
-      (while (> current-col 0)
-        (print current-col)
-        (set current-col (- current-col 1)
+      ;; (while (> current-col 0)
+      ;;   (print current-col)
+      ;;   (set current-col (- current-col 1)
         
-        )))))
+      ;;   )))))
 
 
 (fn test-command []
